@@ -1,4 +1,4 @@
 streamlit
 pandas
 reportlab
-PyPPDF2
+PyPDF2
