@@ -169,9 +169,18 @@ if uploaded_file is not None:
     
     # Realiza as manipulações no DataFrame
     df = df.iloc[:-2]
-    df = df[['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
-             'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
-             'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega', 'Região WMS']]
+    # Verifica se a coluna 'Região WMS' existe no DataFrame
+if 'Região WMS' in df.columns:
+    colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
+                            'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
+                            'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega', 'Região WMS']
+else:
+    colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
+                            'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
+                            'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega']
+
+# Seleciona as colunas no DataFrame
+df = df[colunas_para_selecao]
     df['Chave Conhecimento'] = df['Chave Conhecimento'].fillna('')
     df['Tp. Solicitacao Coleta'] = df['Tp. Solicitacao Coleta'].str.slice(0, 1)
     df['Mercadoria Descricao'] = df['Mercadoria Descricao'].str.slice(0, 15)
