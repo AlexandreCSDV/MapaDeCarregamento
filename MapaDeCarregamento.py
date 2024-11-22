@@ -180,7 +180,8 @@ else:
                             'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega']
 
 # Seleciona as colunas no DataFrame
-df = df[colunas_para_selecao]
+    df = df[colunas_para_selecao]
+    
     df['Chave Conhecimento'] = df['Chave Conhecimento'].fillna('')
     df['Tp. Solicitacao Coleta'] = df['Tp. Solicitacao Coleta'].str.slice(0, 1)
     df['Mercadoria Descricao'] = df['Mercadoria Descricao'].str.slice(0, 15)
