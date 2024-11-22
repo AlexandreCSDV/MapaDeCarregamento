@@ -95,64 +95,17 @@ def dataframe_to_pdf(dataframe_dict, buffer):
 # Função para ordenar DataFrame por almoxarifado ou região WMS
 def ordenar_dataframe(df):
     if 'Região WMS' in df.columns:
-        ordem_regiao_wms = ['Quimico','Cantilever', 'Praça Externa 1', 'Praça Externa 2', 'Praça - Rua 00 - Posição 01',
-                        'Praça - Rua 01 - Posição 05', 'Praça - Rua 01 - Posição 06','Praça - Rua 01 - Posição 07',
-                        'Praça - Rua 01 - Posição 08','Praça - Rua 01 - Posição 09','Praça - Rua 02 - Posição 01',
-                        'Praça - Rua 02 - Posição 02','Praça - Rua 02 - Posição 03','Praça - Rua 02 - Posição 04',
-                        'Praça - Rua 02 - Posição 05','Praça - Rua 02 - Posição 06','Praça - Rua 02 - Posição 07',
-                        'Praça - Rua 02 - Posição 08','Praça - Rua 02 - Posição 09','Praça - Rua 03 - Posição 01',
-                        'Praça - Rua 03 - Posição 02','Praça - Rua 03 - Posição 03','Praça - Rua 03 - Posição 04',
-                        'Praça - Rua 03 - Posição 05','Praça - Rua 03 - Posição 06','Praça - Rua 03 - Posição 07',
-                        'Praça - Rua 03 - Posição 08','Praça - Rua 03 - Posição 09','Praça - Rua 04 - Posição 01',
-                        'Praça - Rua 04 - Posição 02','Praça - Rua 04 - Posição 03','Praça - Rua 04 - Posição 04',
-                        'Praça - Rua 04 - Posição 05','Praça - Rua 04 - Posição 06','Praça - Rua 04 - Posição 07',
-                        'Praça - Rua 04 - Posição 08','Praça - Rua 04 - Posição 09','Praça - Rua 05 - Posição 01',
-                        'Praça - Rua 05 - Posição 02','Praça - Rua 05 - Posição 03','Praça - Rua 05 - Posição 04',
-                        'Praça - Rua 05 - Posição 05','Praça - Rua 05 - Posição 06','Praça - Rua 05 - Posição 07',
-                        'Praça - Rua 05 - Posição 08','Praça - Rua 05 - Posição 09','Praça - Rua 06 - Posição 01',
-                        'Praça - Rua 06 - Posição 02','Praça - Rua 06 - Posição 03','Praça - Rua 06 - Posição 04',
-                        'Praça - Rua 06 - Posição 05','Praça - Rua 06 - Posição 06','Praça - Rua 06 - Posição 07',
-                        'Praça - Rua 06 - Posição 08','Praça - Rua 06 - Posição 09','Praça - Rua 07 - Posição 01',
-                        'Praça - Rua 07 - Posição 02','Praça - Rua 07 - Posição 03','Praça - Rua 07 - Posição 04',
-                        'Praça - Rua 07 - Posição 05','Praça - Rua 07 - Posição 06','Praça - Rua 07 - Posição 07',
-                        'Praça - Rua 07 - Posição 08','Praça - Rua 07 - Posição 09','Praça - Rua 08 - Posição 01',
-                        'Praça - Rua 08 - Posição 02','Praça - Rua 08 - Posição 03','Praça - Rua 08 - Posição 04',
-                        'Praça - Rua 08 - Posição 05','Praça - Rua 08 - Posição 06','Praça - Rua 08 - Posição 07',
-                        'Praça - Rua 08 - Posição 08','Praça - Rua 08 - Posição 09','Praça - Rua 09 - Posição 01',
-                        'Praça - Rua 09 - Posição 02','Praça - Rua 09 - Posição 03','Praça - Rua 09 - Posição 04',
-                        'Praça - Rua 09 - Posição 05','Praça - Rua 09 - Posição 06','Praça - Rua 09 - Posição 07',
-                        'Praça - Rua 09 - Posição 08','Praça - Rua 09 - Posição 09','Praça - Rua 10 - Posição 01',
-                        'Praça - Rua 10 - Posição 02','Praça - Rua 10 - Posição 03','Praça - Rua 10 - Posição 04',
-                        'Praça - Rua 10 - Posição 05','Praça - Rua 10 - Posição 06','Praça - Rua 10 - Posição 07',
-                        'Praça - Rua 10 - Posição 08','Praça - Rua 10 - Posição 09','Praça - Rua 11 - Posição 01',
-                        'Praça - Rua 11 - Posição 02','Praça - Rua 12 - Posição 01','Praça - Rua 12 - Posição 02',
-                        'Praça - Rua 12 - Posição 03','Praça - Rua 12 - Posição 04','Praça - Rua 12 - Posição 05',
-                        'Praça - Rua 12 - Posição 06','Praça - Rua 12 - Posição 07','Praça - Rua 12 - Posição 08',
-                        'Praça - Rua 12 - Posição 09','Praça - Rua 13 - Posição 01','Praça - Rua 13 - Posição 02',
-                        'Praça - Rua 13 - Posição 03','Praça - Rua 13 - Posição 04','Praça - Rua 13 - Posição 05',
-                        'Praça - Rua 13 - Posição 06','Praça - Rua 13 - Posição 07','Praça - Rua 13 - Posição 08',
-                        'Praça - Rua 13 - Posição 09','Praça - Rua 14 - Posição 01','Praça - Rua 14 - Posição 02',
-                        'Praça - Rua 14 - Posição 03','Praça - Rua 14 - Posição 04','Praça - Rua 14 - Posição 05',
-                        'Praça - Rua 14 - Posição 06','Praça - Rua 14 - Posição 07','Praça - Rua 14 - Posição 08',
-                        'Praça - Rua 14 - Posição 09','Praça - Rua 15 - Posição 01','Praça - Rua 15 - Posição 02',
-                        'Praça - Rua 15 - Posição 03','Praça - Rua 15 - Posição 04','Praça - Rua 15 - Posição 05',
-                        'Praça - Rua 15 - Posição 06','Praça - Rua 15 - Posição 07','Praça - Rua 15 - Posição 08',
-                        'Praça - Rua 15 - Posição 09','Praça - Rua 16 - Posição 01','Praça - Rua 16 - Posição 02',
-                        'Praça - Rua 16 - Posição 03','Praça - Rua 16 - Posição 04','Praça - Rua 16 - Posição 06',
-                        'Praça - Rua 16 - Posição 07','Praça - Rua 16 - Posição 09','Porta Palete A', 'Porta Palete B',
-                        'Porta Palete C', 'Porta Palete D', 'Porta Palete E', 'Porta Palete F', 'Porta Palete G',
-                        'Porta Palete H', 'Porta Palete I', 'Porta Palete J', 'Porta Palete K', 'Praça de Consolidação',
-                        'Rua 08', 'Rua 12', 'Rua 13', 'Rua 14', 'Rua 15', 'Rua 16', 'Stage', 'Sem Posição']
+        ordem_regiao_wms = ['Quimico','Cantilever', 'Praça Externa 1', 'Praça Externa 2', 'Praça - Rua 00 - Posição 01']
         
-        dataframes_por_almoxarifado_regiao_wms = dict(tuple(df.groupby('Região WMS')))
+        dataframes_por_regiao_wms = dict(tuple(df.groupby('Região WMS')))
         
         dataframes_ordenados_regiao_wms = OrderedDict({
-            regiao: dataframes_por_almoxarifado_regiao_wms[regiao]
-            for regiao in ordem_regiao_wms if regiao in dataframes_por_almoxarifado_regiao_wms
+            regiao: dataframes_por_regiao_wms[regiao]
+            for regiao in ordem_regiao_wms if regiao in dataframes_por_regiao_wms
         })
         
         dataframes_ordenados_regiao_wms.update({
-            regiao: df for regiao, df in dataframes_por_almoxarifado_regiao_wms.items()
+            regiao: df for regiao, df in dataframes_por_regiao_wms.items()
             if regiao not in ordem_regiao_wms
         })
         
@@ -167,21 +120,21 @@ uploaded_file = st.file_uploader("Escolha um arquivo Excel", type="xlsx")
 if uploaded_file is not None:
     df = pd.read_excel(uploaded_file)
     
-    # Realiza as manipulações no DataFrame
-    df = df.iloc[:-2]
     # Verifica se a coluna 'Região WMS' existe no DataFrame
-if 'Região WMS' in df.columns:
-    colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
-                            'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
-                            'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega', 'Região WMS']
-else:
-    colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
-                            'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
-                            'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega']
+    if 'Região WMS' in df.columns:
+        colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
+                                'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
+                                'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega', 'Região WMS']
+    else:
+        colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
+                                'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
+                                'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega']
 
-# Seleciona as colunas no DataFrame
+    # Seleciona as colunas no DataFrame
     df = df[colunas_para_selecao]
     
+    # Realiza as manipulações no DataFrame
+    df = df.iloc[:-2]
     df['Chave Conhecimento'] = df['Chave Conhecimento'].fillna('')
     df['Tp. Solicitacao Coleta'] = df['Tp. Solicitacao Coleta'].str.slice(0, 1)
     df['Mercadoria Descricao'] = df['Mercadoria Descricao'].str.slice(0, 15)
