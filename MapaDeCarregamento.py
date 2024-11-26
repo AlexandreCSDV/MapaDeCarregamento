@@ -226,6 +226,7 @@ if uploaded_file is not None:
     merger.close()
 
     data_hoje = datetime.now().strftime('%d%b%y').lower()
+    zona_entrega_mais_comum = df['Zona Entrega'].mode()[0]
     
     # Botão para download do PDF
     st.download_button(
