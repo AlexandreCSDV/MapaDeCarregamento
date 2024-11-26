@@ -224,11 +224,13 @@ if uploaded_file is not None:
     output_buffer = io.BytesIO()
     merger.write(output_buffer)
     merger.close()
+
+    data_hoje = datetime.now().strftime('%d%b%y').lower()
     
     # Botão para download do PDF
     st.download_button(
         label="Baixar PDF",
         data=output_buffer.getvalue(),
-        file_name="MapaDeCarregamento.pdf",
+        file_name=f"{zona_entrega_mais_comum}_{data_hoje}.csv",
         mime="application/pdf"
     )
