@@ -232,6 +232,6 @@ if uploaded_file is not None:
     st.download_button(
         label="Baixar PDF",
         data=output_buffer.getvalue(),
-        file_name=f"{zona_entrega_mais_comum}_{data_hoje}.csv",
+        file_name=f"{zona_entrega_mais_comum}_{data_hoje}.pdf",
         mime="application/pdf"
     )
