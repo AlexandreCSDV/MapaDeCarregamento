@@ -152,7 +152,7 @@ if uploaded_file is not None:
     df['Etiqueta Unica'] = df['Etiqueta Unica'].apply(lambda x: x[:-2] if x.endswith('.0') else x).replace('nan', '')
     df['Nº ONU'] = pd.to_numeric(df['Nº ONU'], errors='coerce').fillna('').astype('string')
     df['Nº ONU'] = df['Nº ONU'].apply(lambda x: x[:-2] if x.endswith('.0') else x).replace('nan', '')
-    df['Endereco WMS'] = df['Endereco WMS'].fillna('')
+    # df['Endereco WMS'] = df['Endereco WMS'].fillna('')
     df['Peso Nota'] = df['Peso Nota'].round(2)
     
     novos_nomes = {
