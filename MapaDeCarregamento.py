@@ -134,7 +134,7 @@ if uploaded_file is not None:
     df = df[colunas_para_selecao]
     
     # Realiza as manipulações no DataFrame
-    # df = df.iloc[:-2] # precisava retirar as duas linhas quando o arquivo vem do bi, vindo do sap nao tem uma linha embaixo especificando os filtros
+    df = df.iloc[:-2]
     df['Chave Conhecimento'] = df['Chave Conhecimento'].fillna('')
     df['Tp. Solicitacao Coleta'] = df['Tp. Solicitacao Coleta'].str.slice(0, 1)
     df['Mercadoria Descricao'] = df['Mercadoria Descricao'].str.slice(0, 15)
