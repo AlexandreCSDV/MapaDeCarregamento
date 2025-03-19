@@ -148,6 +148,7 @@ if uploaded_file is not None:
     df['Data Limite Embarque'] = df['Data Limite Embarque'].dt.strftime('%d/%m/%y')
     df['Nota Numero'] = df['Nota Numero'].astype(int)
     df['Nota Volumes'] = df['Nota Volumes'].astype(int)
+    df['Prioridade'] = df['Prioridade'].astype(str)
     df['Etiqueta Unica'] = pd.to_numeric(df['Etiqueta Unica'], errors='coerce').fillna('').astype('string')
     df['Etiqueta Unica'] = df['Etiqueta Unica'].apply(lambda x: x[:-2] if x.endswith('.0') else x).replace('nan', '')
     df['Nº ONU'] = pd.to_numeric(df['Nº ONU'], errors='coerce').fillna('').astype('string')
