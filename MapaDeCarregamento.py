@@ -126,7 +126,7 @@ if uploaded_file is not None:
                                 'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
                                 'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega', 'Região WMS']
     else:
-        colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Nota Volumes',
+        colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Volumes',
                                 'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
                                 'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega']
 
@@ -147,7 +147,7 @@ if uploaded_file is not None:
     df['Data Limite Embarque'] = pd.to_datetime(df['Data Limite Embarque'], errors='coerce')
     df['Data Limite Embarque'] = df['Data Limite Embarque'].dt.strftime('%d/%m/%y')
     df['Nota Numero'] = df['Nota Numero'].astype(int)
-    df['Nota Volumes'] = df['Nota Volumes'].astype(int)
+    df['Volumes'] = df['Volumes'].astype(int)
     df['Prioridade'] = df['Prioridade'].astype(str)
     df['Etiqueta Unica'] = pd.to_numeric(df['Etiqueta Unica'], errors='coerce').fillna('').astype('string')
     df['Etiqueta Unica'] = df['Etiqueta Unica'].apply(lambda x: x[:-2] if x.endswith('.0') else x).replace('nan', '')
@@ -162,7 +162,7 @@ if uploaded_file is not None:
         'Etiqueta Unica': 'Etq. Unica',
         'Chave Conhecimento': 'CTE',
         'Peso Nota': 'KG',
-        'Nota Volumes': 'Vol',
+        'Volumes': 'Vol',
         'Tp. Solicitacao Coleta': 'Prior',
         'Nº ONU': 'ONU',
         'Razao Remetente': 'Remetente',
