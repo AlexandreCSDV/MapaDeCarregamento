@@ -126,7 +126,7 @@ if uploaded_file is not None:
                                 'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
                                 'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega', 'Região WMS']
     else:
-        colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'Chave Conhecimento', 'Peso Nota', 'Volumes',
+        colunas_para_selecao = ['Chegada', 'Nota Numero', 'Etiqueta Unica', 'CTE', 'Peso Nota', 'Volumes',
                                 'Tp. Solicitacao Coleta', 'Nº ONU', 'Razao Remetente', 'Almox. Destino', 'Mercadoria Descricao',
                                 'Limite Entregar (Definitivo)', 'Endereco WMS', 'Data Limite Embarque', 'Zona Entrega']
 
@@ -135,7 +135,7 @@ if uploaded_file is not None:
     
     # Realiza as manipulações no DataFrame
     df = df.iloc[:-2]
-    df['Chave Conhecimento'] = df['Chave Conhecimento'].fillna('')
+    df['CTE'] = df['CTE'].fillna('')
     df['Tp. Solicitacao Coleta'] = df['Tp. Solicitacao Coleta'].str.slice(0, 1)
     df['Mercadoria Descricao'] = df['Mercadoria Descricao'].str.slice(0, 15)
     df['Almox. Destino'] = df['Almox. Destino'].str.slice(0, 25)
@@ -160,7 +160,7 @@ if uploaded_file is not None:
         'Chegada': 'Chegada',
         'Nota Numero': 'Nota',
         'Etiqueta Unica': 'Etq. Unica',
-        'Chave Conhecimento': 'CTE',
+        'CTE': 'CTE',
         'Peso Nota': 'KG',
         'Volumes': 'Vol',
         'Tp. Solicitacao Coleta': 'Prior',
