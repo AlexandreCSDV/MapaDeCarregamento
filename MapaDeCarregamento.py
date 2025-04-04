@@ -225,6 +225,7 @@ if uploaded_file is not None:
     df['Data Embarque'] = pd.to_datetime(df['Data Embarque'], errors='coerce')
     df['Data Embarque'] = df['Data Embarque'].dt.strftime('%d/%m/%y')
     df['Nota'] = df['Nota'].astype(int)
+    df['Nota'[ = df['Nota'].astype(str)
     df['Quantidade de volumes'] = df['Quantidade de volumes'].astype(int)
     df['Número da Etiqueta Única'] = pd.to_numeric(df['Número da Etiqueta Única'], errors='coerce').fillna('').astype('string')
     df['Número da Etiqueta Única'] = df['Número da Etiqueta Única'].apply(lambda x: x[:-2] if x.endswith('.0') else x).replace('nan', '')
