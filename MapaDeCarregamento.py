@@ -206,8 +206,8 @@ if uploaded_file is not None:
 
     # Seleciona as colunas no DataFrame
     df = df[colunas_para_selecao]
-    df = remover_acentos(df)
-    df = tratar_dados(df, ['Fornecedor'])
+    # df = remover_acentos(df)
+    # df = tratar_dados(df, ['Fornecedor'])
     df['Fornecedor'] = df['Fornecedor'].str.replace(' ','')
     
     # Realiza as manipulações no DataFrame
