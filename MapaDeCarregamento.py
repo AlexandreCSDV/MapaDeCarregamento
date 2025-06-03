@@ -213,6 +213,7 @@ if uploaded_file is not None:
     # Realiza as manipulações no DataFrame
     df = df.iloc[:-2] # precisava retirar as duas linhas quando o arquivo vem do bi, vindo do sap nao tem uma linha embaixo especificando os filtros
     df['CTRC'] = df['CTRC'].fillna('')
+    df['BP Destino'] = df['BP Destino'].fillna('')
     df['Prioridade'] = df['Prioridade'].astype(str)
     df['Prioridade'] = df['Prioridade'].str.slice(0, 1)
     df['Mercadoria'] = df['Mercadoria'].str.slice(0, 15)
